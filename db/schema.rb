@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_11_22_232415) do
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.string "expiration_date"
+    t.string "category"
   end
 
 end
