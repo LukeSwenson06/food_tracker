@@ -1,3 +1,3 @@
 class Freezer < ApplicationRecord
-    has_many :foods
+    belongs_to :food
 end

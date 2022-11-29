@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_29_221510) do
+ActiveRecord::Schema.define(version: 2022_11_29_222718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 2022_11_29_221510) do
     t.index ["food_id"], name: "index_freezers_on_food_id"
   end
 
-  create_table "miscellaneous", force: :cascade do |t|
+  create_table "others", force: :cascade do |t|
     t.bigint "food_id"
-    t.index ["food_id"], name: "index_miscellaneous_on_food_id"
+    t.index ["food_id"], name: "index_others_on_food_id"
   end
 
   create_table "refridgerators", force: :cascade do |t|
@@ -43,6 +43,6 @@ ActiveRecord::Schema.define(version: 2022_11_29_221510) do
 
   add_foreign_key "cabinets", "foods"
   add_foreign_key "freezers", "foods"
-  add_foreign_key "miscellaneous", "foods"
+  add_foreign_key "others", "foods"
   add_foreign_key "refridgerators", "foods"
 end

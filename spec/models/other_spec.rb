@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Refridgerator, type: :model do
+RSpec.describe Other, type: :model do
     describe "relationships" do
         it { should belong_to :food}
     end

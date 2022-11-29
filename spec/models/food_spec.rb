@@ -7,9 +7,9 @@ RSpec.describe Food, type: :model do
     end
 
     describe "relationships" do
-        it { should belong_to :cabinet}
-        it { should belong_to :refridgerator}
-        it { should belong_to :freezer}
-        it { should belong_to :miscellaneous}
+        it { should have_many :cabinets}
+        it { should have_many :refridgerators}
+        it { should have_many :freezers}
+        it { should have_many :others}
     end
 end
