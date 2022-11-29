@@ -10,15 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_22_232415) do
+ActiveRecord::Schema.define(version: 2022_11_29_175916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cabinets", force: :cascade do |t|
+  end
 
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.string "expiration_date"
     t.string "category"
+    t.bigint "cabinet_id"
+    t.bigint "refridgerator_id"
+    t.bigint "freezer_id"
+    t.bigint "miscellaneous_id"
+    t.index ["cabinet_id"], name: "index_foods_on_cabinet_id"
+    t.index ["freezer_id"], name: "index_foods_on_freezer_id"
+    t.index ["miscellaneous_id"], name: "index_foods_on_miscellaneous_id"
+    t.index ["refridgerator_id"], name: "index_foods_on_refridgerator_id"
   end
 
+  create_table "freezers", force: :cascade do |t|
+  end
+
+  create_table "miscellaneous", force: :cascade do |t|
+  end
+
+  create_table "refridgerators", force: :cascade do |t|
+  end
+
+  add_foreign_key "foods", "cabinets"
+  add_foreign_key "foods", "freezers"
+  add_foreign_key "foods", "miscellaneous", column: "miscellaneous_id"
+  add_foreign_key "foods", "refridgerators"
 end
