@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "Index page" do
     it "displays storage containters with food items listed" do
-        cabinet = Cabinet.new
-        fridge = Refridgerator.new
-        freezer = Freezer.new
-        random = Miscellaneous.new
-        food1 = Food.new(name: "Pork", category: "Meat", expiration_date: "30 December 2022", refridgerator_id: 1)
-        food2 = Food.new(name: "Broccoli", category: "Vegetable", expiration_date: "5 December 2022", cabinet_id: 1)
-        food3 = Food.new(name: "Ice Cream", category: "Dairy", expiration_date: "5 December 2022", freezer_id: 1)
-        food4 = Food.new(name: "Chips", category: "Snack", expiration_date: "1 January 2023", miscellaneous_id: 1)
+        cabinet = Cabinet.create
+        fridge = Refridgerator.create
+        freezer = Freezer.create
+        random = Miscellaneous.create
+        food1 = Food.create(name: "Pork", category: "Meat", expiration_date: "30 December 2022", refridgerator_id: 1)
+        food2 = Food.create(name: "Broccoli", category: "Vegetable", expiration_date: "5 December 2022", cabinet_id: 1)
+        food3 = Food.create(name: "Ice Cream", category: "Dairy", expiration_date: "5 December 2022", freezer_id: 1)
+        food4 = Food.create(name: "Chips", category: "Snack", expiration_date: "1 January 2023", miscellaneous_id: 1)
         
         visit "/"
-        
+        binding.pry
         expect(page).to have_content("Fridge")
         expect(page).to have_content("Freezer")
         expect(page).to have_content("Cabinet")
