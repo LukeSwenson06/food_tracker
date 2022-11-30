@@ -1,7 +1,29 @@
+<h1> HomePage </h1>
+
 <h3> Fridge <h3>
 <div id="Fridge">
-    
+<% @fridge.each do |refridgerator| %>
+<b>Name:</b> <%= refridgerator.food.name %> <b>Category:</b> <%= refridgerator.food.category %> <b>Expiration Date:</b> <%= refridgerator.food.expiration_date %>
+<% end %>
 </div>
+
 <h3> Freezer <h3>
+<div id="Freezer">
+<% @freezer.each do |freezer| %>
+<b>Name:</b> <%= freezer.food.name %> <b>Category:</b> <%= freezer.food.category %> <b>Expiration Date:</b> <%= freezer.food.expiration_date %>
+<% end %>
+</div>
+
 <h3> Cabinet <h3>
+<div id="Cabinet">
+<% @cabinet.each do |cabinet| %>
+<b>Name:</b> <%= cabinet.food.name %> <b>Category:</b> <%= cabinet.food.category %> <b>Expiration Date:</b> <%= cabinet.food.expiration_date %>
+<% end %>
+</div>
+
 <h3> Other <h3>
+<div id="Other">
+<% @other.each do |other| %>
+<b>Name:</b> <%= other.food.name %> <b>Category:</b> <%= other.food.category %> <b>Expiration Date:</b> <%= other.food.expiration_date %>
+<% end %>
+</div>

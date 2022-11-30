@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "Index page" do
     it "displays storage containters with food items listed" do
-        cabinet = Cabinet.create
-        fridge = Refridgerator.create
-        freezer = Freezer.create
-        random = Miscellaneous.create
-        food1 = Food.create(name: "Pork", category: "Meat", expiration_date: "30 December 2022", refridgerator_id: 1)
-        food2 = Food.create(name: "Broccoli", category: "Vegetable", expiration_date: "5 December 2022", cabinet_id: 1)
-        food3 = Food.create(name: "Ice Cream", category: "Dairy", expiration_date: "5 December 2022", freezer_id: 1)
-        food4 = Food.create(name: "Chips", category: "Snack", expiration_date: "1 January 2023", miscellaneous_id: 1)
+        food1 = Food.create(name: "Pork", category: "Meat", expiration_date: "30 December 2022")
+        food2 = Food.create(name: "Broccoli", category: "Vegetable", expiration_date: "5 December 2022")
+        food3 = Food.create(name: "Ice Cream", category: "Dairy", expiration_date: "5 December 2022")
+        food4 = Food.create(name: "Chips", category: "Snack", expiration_date: "1 January 2023")
+        cabinet = Cabinet.create(food_id: food2.id)
+        fridge = Refridgerator.create(food_id: food1.id)
+        freezer = Freezer.create(food_id: food3.id)
+        other = Other.create(food_id: food4.id)
         
         visit "/"
-        binding.pry
+
         expect(page).to have_content("Fridge")
         expect(page).to have_content("Freezer")
         expect(page).to have_content("Cabinet")
@@ -53,7 +53,6 @@ RSpec.describe "Index page" do
             expect(page).to_not have_content("Pork")
             expect(page).to_not have_content("Dairy")
             expect(page).to_not have_content("5 December 2022")
-
         end
     end
 end
