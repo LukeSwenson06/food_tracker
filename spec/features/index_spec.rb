@@ -22,4 +22,12 @@ RSpec.describe "Index page" do
         expect(page).to have_content(food4.category)
         expect(page).to have_content(food4.expiration_date)
     end
+
+    it 'can take you to a form to add a new food item' do
+        visit "/"
+
+        expect(page).to have_button("Add Food")
+        click_button "Add Food"
+        expect(current_path).to eq("/food/new")
+    end
 end

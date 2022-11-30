@@ -1,4 +1,6 @@
 <h1> Food Tracker <h1>
+<%= button_to "Add Food", "/food/new", method: :get %>
+
 <% @food.each do |item| %>
 <table>
     <tr>
