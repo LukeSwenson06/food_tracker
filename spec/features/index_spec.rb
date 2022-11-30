@@ -55,4 +55,16 @@ RSpec.describe "Index page" do
             expect(page).to_not have_content("5 December 2022")
         end
     end
+
+    it "has clickable links that takes you to that items show page" do
+        food1 = Food.create(name: "Pork", category: "Meat", expiration_date: "30 December 2022")
+        fridge = Refridgerator.create(food_id: food1.id)
+        
+        visit "/"
+
+        expect(page).to have_link("Fridge")
+        click_link("Fridge")
+        expect(current_path).to eq fridge_path(fridge.id)
+        
+    end
 end
