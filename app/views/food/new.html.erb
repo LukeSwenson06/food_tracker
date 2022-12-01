@@ -1,3 +1,9 @@
+<% flash.each do |type, msg| %>
+  <div>
+   <h2> <%= msg %> </h2>
+  </div>
+<% end %>
+
 <%= form_with url: "/food", method: :post, local: true do |form| %>
     <p><%= form.label :name, "Foods Name" %></p>
     <%= form.text_field :name %>
