@@ -7,7 +7,7 @@ RSpec.describe "New Page" do
 
         expect(current_path).to eq("/food/new")
         expect(page).to have_content("Foods Name")
-        expect(page).to have_content("Select Category")
+        expect(page).to have_content("Type Category of Food")
         expect(page).to have_content("Select Food's Expiration Date")
         fill_in "Foods Name", with: 'Doritos'
         fill_in "Select Category", with: 'Snack'
