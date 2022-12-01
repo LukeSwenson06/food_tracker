@@ -1,0 +1,9 @@
+<%= form_with url: "/food", method: :post, local: true do |form| %>
+    <p><%= form.label :name, "Foods Name" %></p>
+    <%= form.text_field :name %>
+    <p><%= form.label :category, "Select Category" %></p>
+    <%= form.text_field :category %>
+    <p><%= form.label :expiration_date, "Select Food's Expiration Date" %></p>
+    <%= form.date_field :expiration_date %>
+    <p><%= form.submit "Submit" %></p>
+<% end %>
