@@ -1,23 +1,31 @@
 <h1> Food Tracker <h1>
 <h3><%= link_to "Add Food", "/food/new", method: :get %> </h3>
+
 <% flash.each do |type, msg| %>
   <div>
    <h2> <%= msg %> </h2>
   </div>
 <% end %>
-<table style="text-align: center";>
+
+<table class="table">
+  <thead>
     <tr>
-        <th> Name </th>
-        <th> Category </th>
-        <th> Expiration Date </th>
-        <th> Edit Food </th>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Expiration Date</th>
+      <th scope="col">Edit Food</th>
     </tr>
-<% @food.each do |item| %>
+  </thead>
+  <tbody>
+    <% @food.each do |item| %>
     <tr>
-        <td><%= item.name %> </td>
-        <td><%= item.category %></td>
-        <td><%= item.expiration_date %></td>
-        <td><%= link_to "Edit #{item.name}", edit_food_path(item.id) %></td>
+      <th scope="row"><%= item.name %></th>
+      <td><%= item.category %></td>
+      <td><%= item.expiration_date %></td>
+      <td><%= link_to "Edit #{item.name}", edit_food_path(item.id) %></td>
     </tr>
+    <% end %>
+  </tbody>
 </table>
-<% end %>
+        
+
