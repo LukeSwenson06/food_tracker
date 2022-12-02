@@ -18,6 +18,7 @@
   </thead>
   <tbody>
     <% @food.each do |item| %>
+    <div class=<%= "food-#{item.id}" %>>
     <tr>
       <th scope="row"><%= item.name %></th>
       <td><%= item.category %></td>

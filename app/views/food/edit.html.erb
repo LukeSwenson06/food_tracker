@@ -6,10 +6,10 @@
 
 <%= form_with url: "/food/#{@food.id}", method: :patch, local: true do |form| %>
     <p><%= form.label :name, "Foods Name" %></p>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, :value => @food.name %>
     <p><%= form.label :category, "Type Category of Food" %></p>
-    <%= form.text_field :category %>
+    <%= form.text_field :category, :value => @food.category %>
     <p><%= form.label :expiration_date, "Select Food's Expiration Date" %></p>
-    <%= form.date_field :expiration_date %>
+    <%= form.date_field :expiration_date, :expiration_date => @food.expiration_date %>
     <p><%= form.submit "Submit" %></p>
 <% end %>

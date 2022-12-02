@@ -26,8 +26,8 @@ RSpec.describe "Index page" do
     it 'can take you to a form to add a new food item' do
         visit "/"
 
-        expect(page).to have_button("Add Food")
-        click_button "Add Food"
+        expect(page).to have_link("Add Food")
+        click_link "Add Food"
         expect(current_path).to eq("/food/new")
     end
 end
