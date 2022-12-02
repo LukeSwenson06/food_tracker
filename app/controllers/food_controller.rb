@@ -24,7 +24,12 @@ class FoodController < ApplicationController
     def update
         food = Food.find(params[:id])
         food.update(food_params)
-        redirect_to root_path
+        if food.save
+            redirect_to root_path
+        else
+            redirect_to edit_food_path(food.id)
+            flash[:alert] = "Please fill out all fields"
+        end
     end
 
 private

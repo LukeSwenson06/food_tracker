@@ -35,7 +35,5 @@ RSpec.describe 'Edit Page' do
 
         expect(current_path).to eq edit_food_path(food1.id)
         expect(page).to have_content("Please fill out all fields")
-
-
     end
 end
