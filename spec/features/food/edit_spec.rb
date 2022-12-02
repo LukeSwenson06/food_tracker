@@ -21,6 +21,7 @@ RSpec.describe 'Edit Page' do
         
         expect(current_path).to eq(root_path)
         expect(page).to have_content("Spaghetti")
+        expect(page).to have_content("Your Edit has been Successful!")
     end
     
     it "will produce an error message when information has not been filled out" do

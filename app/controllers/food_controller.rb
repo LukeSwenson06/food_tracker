@@ -25,6 +25,7 @@ class FoodController < ApplicationController
         food = Food.find(params[:id])
         food.update(food_params)
         if food.save
+            flash[:message] = "Your Edit has been Successful!"
             redirect_to root_path
         else
             redirect_to edit_food_path(food.id)
