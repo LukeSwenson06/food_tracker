@@ -18,12 +18,12 @@
   </thead>
   <tbody>
     <% @food.each do |item| %>
-    <div class=<%= "food-#{item.id}" %>>
     <tr>
       <th scope="row"><%= item.name %></th>
       <td><%= item.category %></td>
       <td><%= item.expiration_date %></td>
       <td><%= link_to "Edit #{item.name}", edit_food_path(item.id) %></td>
+      <td><%= link_to "Delete #{item.name}", food_path(item.id), method: :delete %></td>
     </tr>
     <% end %>
   </tbody>

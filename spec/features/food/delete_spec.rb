@@ -13,11 +13,9 @@ RSpec.describe "Delete Method" do
         expect(page).to have_content(food2.name)
         expect(page).to have_content(food2.category)
         expect(page).to have_content(food2.expiration_date)
-        expect(page).to have_link "Delete Food"
+        expect(page).to have_link "Delete #{food1.name}"
 
-        within "food-#{food1.id}" do
-            click_link "Delete Food"
-        end
+        click_link "Delete #{food1.name}"
 
         expect(page).to_not have_content(food1.name)
         expect(page).to_not have_content(food1.category)
