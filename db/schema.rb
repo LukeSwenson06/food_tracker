@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2022_12_04_232954) do
     t.string "category"
     t.string "brand"
     t.integer "quantity"
-    t.integer "location"
+    t.string "location"
   end
 
 end
