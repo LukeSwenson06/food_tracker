@@ -70,10 +70,13 @@ RSpec.describe "Index page" do
 
         click_link "Sort"
         
-        expect(food4.category).to appear_before(food3.category)
-        expect(food3.category).to appear_before(food6.category)
+        expect(food4.category).to appear_before(food6.category)
         expect(food6.category).to appear_before(food2.category)
-        expect(food2.category).to appear_before(food1.category)
-        expect(food1.category).to appear_before(food5.category)
+        expect(food2.category).to appear_before(food5.category)
+        expect(food4.name).to appear_before(food3.name)
+        expect(food3.name).to appear_before(food6.name)
+        expect(food6.name).to appear_before(food2.name)
+        expect(food2.name).to appear_before(food1.name)
+        expect(food1.name).to appear_before(food5.name)
     end
 end
