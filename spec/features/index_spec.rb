@@ -51,8 +51,8 @@ RSpec.describe "Index page" do
 
         visit '/'
 
-        click_link "A-Z", :from => "alphabeticalName"
-    
+        click_link "A-Z"
+        
         expect(food2.name).to appear_before(food4.name)
         expect(food4.name).to appear_before(food3.name)
         expect(food3.name).to appear_before(food1.name)
