@@ -38,4 +38,17 @@ RSpec.describe "Index page" do
         click_link "Add Food"
         expect(current_path).to eq("/food/new")
     end
+
+    it 'can order food by expiration date by asc' do
+        food1 = Food.create(name: "Pork", category: "Meat", expiration_date: Date.new(2022, 12, 13), brand: "Porkey Industries", location: "Refridgerator")
+        food2 = Food.create(name: "Broccoli", category: "Vegetable", expiration_date: Date.new(2022, 12, 12), brand: "Healthy Co", location: "Fridge")
+        food3 = Food.create(name: "Ice Cream", category: "Dairy", expiration_date: Date.new(2023, 01, 01), brand: "Pillsbury", location: "Cabinet")
+        food4 = Food.create(name: "Chips", category: "Snack", expiration_date: Date.new(2023, 04, 04), brand: "Namico", location: "Cabinet")
+
+        visit '/'
+    
+        expect(food2.name).to appear_before(food1.name)
+        expect(food1.name).to appear_before(food3.name)
+        expect(food3.name).to appear_before(food4.name)
+    end
 end
