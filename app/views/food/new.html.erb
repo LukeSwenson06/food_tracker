@@ -11,5 +11,10 @@
     <%= form.text_field :category %>
     <p><%= form.label :expiration_date, "Select Food's Expiration Date" %></p>
     <%= form.date_field :expiration_date %>
+    <p><%= form.label :brand, "Brand of Food Item" %></p>
+    <%= form.text_field :brand %>
+    <p><%= form.label :location, "Where is it located in your kitchen?" %></p>
+    <%= form.text_field :location %>
     <p><%= form.submit "Submit" %></p>
 <% end %>
+

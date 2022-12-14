@@ -7,17 +7,18 @@
   </div>
 <% end %>
 
-<table class="table">
-  <thead>
+<table class="table table-striped">
+  <thead class ="thead-dark">
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Category</th>
       <th scope="col">Expiration Date</th>
       <th scope="col">Edit Food</th>
+      <th scope="col">Delete Food</th>
     </tr>
   </thead>
   <tbody>
-    <% @food.each do |item| %>
+    <% @food.oldest_to_newest.each do |item|%>
     <tr>
       <th scope="row"><%= item.name %></th>
       <td><%= item.category %></td>
