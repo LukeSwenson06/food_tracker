@@ -22,10 +22,24 @@
     <tr>
       <th scope="row"><%= item.name %></th>
       <td><%= item.category %></td>
-      <td><%= item.expiration_date %></td>
-      <td><%= link_to "Edit #{item.name}", edit_food_path(item.id) %></td>
-      <td><%= link_to "Delete #{item.name}", food_path(item.id), method: :delete %></td>
+        <% if item.expiration_date.blank? %>
+          <td><%= item.expiration_date %></td>
+          <td><%= link_to "Edit #{item.name}", edit_food_path(item.id) %></td>
+          <td><%= link_to "Delete #{item.name}", food_path(item.id), method: :delete %></td>
+        <% elsif Date.today.to_s > item.expiration_date  %>
+          <td style="background-color:Red;"><%= item.expiration_date %></td>
+          <td><%= link_to "Edit #{item.name}", edit_food_path(item.id) %></td>
+          <td><%= link_to "Delete #{item.name}", food_path(item.id), method: :delete %></td>
+        <% elsif (Date.today + 7).to_s > item.expiration_date %>
+          <td style="background-color:Yellow;"><%= item.expiration_date %></td>
+          <td><%= link_to "Edit #{item.name}", edit_food_path(item.id) %></td>
+          <td><%= link_to "Delete #{item.name}", food_path(item.id), method: :delete %></td>
+        <% else %>
+          <td style="background-color:Green;"><%= item.expiration_date %></td>
+          <td><%= link_to "Edit #{item.name}", edit_food_path(item.id) %></td>
+          <td><%= link_to "Delete #{item.name}", food_path(item.id), method: :delete %></td>
     </tr>
+    <% end %> 
     <% end %>
   </tbody>
 </table>
