@@ -9,4 +9,8 @@ class Food < ApplicationRecord
     def self.alphabetically_asc
        order(name: :asc) 
     end
+
+    def self.category_asc
+        order(category: :asc, name: :asc)
+    end
 end

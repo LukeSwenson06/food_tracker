@@ -1,8 +1,12 @@
 class FoodController < ApplicationController
     def index
-        @food = Food.all
+        # @food = Food.all
         if params[:sort] == "alphabetize_asc"
-            @food.alphabetically_asc
+            @food = Food.all.alphabetically_asc
+        elsif params[:sort] == "category_asc"
+            @food = Food.all.category_asc
+        else
+            @food = Food.all
         end
     end
 

@@ -25,5 +25,16 @@ RSpec.describe Food, type: :model do
             
             expect(Food.alphabetically_asc).to eq([food2, food4, food3, food1])
         end
+
+        it 'can sort food by category alphabetically' do
+            food1 = Food.create(name: "Pork", category: "Meat", expiration_date: Date.new(2022, 12, 13), brand: "Porkey Industries", location: "Refridgerator")
+            food2 = Food.create(name: "Chicken", category: "Meat", expiration_date: Date.new(2022, 12, 12), brand: "Healthy Co", location: "Fridge")
+            food3 = Food.create(name: "Ice Cream", category: "Dairy", expiration_date: Date.new(2023, 01, 01), brand: "Pillsbury", location: "Cabinet")
+            food4 = Food.create(name: "Eggs", category: "Dairy", expiration_date: Date.new(2023, 04, 04), brand: "Namico", location: "Cabinet")
+            food5 = Food.create(name: "Broccoli", category: "Vegetable", expiration_date: Date.new(2022, 01, 04), brand: "Namico", location: "Cabinet")
+            food6 = Food.create(name: "Pomegranate", category: "Fruit", expiration_date: Date.new(2022, 12, 17), brand: "Namico", location: "Cabinet")
+            
+            expect(Food.category_asc).to eq([food4, food3, food6, food2, food1, food5])
+        end 
     end
 end
