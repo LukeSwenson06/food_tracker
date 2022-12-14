@@ -57,4 +57,23 @@ RSpec.describe "Index page" do
         expect(food4.name).to appear_before(food3.name)
         expect(food3.name).to appear_before(food1.name)
     end
+
+    it 'can sort by category alphabetically ascending with name alphabetically ascending' do
+        food1 = Food.create(name: "Pork", category: "Meat", expiration_date: Date.new(2022, 12, 13), brand: "Porkey Industries", location: "Refridgerator")
+        food2 = Food.create(name: "Chicken", category: "Meat", expiration_date: Date.new(2022, 12, 12), brand: "Healthy Co", location: "Fridge")
+        food3 = Food.create(name: "Ice Cream", category: "Dairy", expiration_date: Date.new(2023, 01, 01), brand: "Pillsbury", location: "Cabinet")
+        food4 = Food.create(name: "Eggs", category: "Dairy", expiration_date: Date.new(2023, 04, 04), brand: "Namico", location: "Cabinet")
+        food5 = Food.create(name: "Broccoli", category: "Vegetable", expiration_date: Date.new(2022, 01, 04), brand: "Namico", location: "Cabinet")
+        food6 = Food.create(name: "Pomegranate", category: "Fruit", expiration_date: Date.new(2022, 12, 17), brand: "Namico", location: "Cabinet")
+            
+        visit '/'
+
+        click_link "Sort"
+        
+        expect(food4.category).to appear_before(food3.category)
+        expect(food3.category).to appear_before(food6.category)
+        expect(food6.category).to appear_before(food2.category)
+        expect(food2.category).to appear_before(food1.category)
+        expect(food1.category).to appear_before(food5.category)
+    end
 end
