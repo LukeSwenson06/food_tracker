@@ -1,12 +1,6 @@
 <h1> Food Tracker <h1>
 <h3><%= link_to "Add Food", "/food/new", method: :get %> </h3>
 
-<% flash.each do |type, msg| %>
-  <div>
-   <h2> <%= msg %> </h2>
-  </div>
-<% end %>
-
 <table class="table table-striped">
   <thead class ="thead-dark">
     <tr>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>FoodTracker</title>
-    <%= csrf_meta_tags %>
+    <%# <%= csrf_meta_tags %> %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,5 +11,10 @@
 
   <body>
     <%= yield %>
+    <% flash.each do |type, msg| %>
+      <div>
+        <h2> <%= msg %> </h2>
+      </div>
+    <% end %>
   </body>
 </html>
