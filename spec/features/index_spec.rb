@@ -79,4 +79,25 @@ RSpec.describe "Index page" do
         expect(food2.name).to appear_before(food1.name)
         expect(food1.name).to appear_before(food5.name)
     end
+
+    it 'can show expiration date asc by clicking link' do
+        food1 = Food.create(name: "Pork", category: "Meat", expiration_date: Date.new(2022, 12, 13), brand: "Porkey Industries", location: "Refridgerator")
+        food2 = Food.create(name: "Broccoli", category: "Vegetable", expiration_date: Date.new(2022, 12, 12), brand: "Healthy Co", location: "Fridge")
+        food3 = Food.create(name: "Ice Cream", category: "Dairy", expiration_date: Date.new(2023, 01, 01), brand: "Pillsbury", location: "Cabinet")
+        food4 = Food.create(name: "Chips", category: "Snack", expiration_date: Date.new(2023, 04, 04), brand: "Namico", location: "Cabinet")
+
+        visit '/'
+
+        click_link "A-Z"
+        
+        expect(food2.name).to appear_before(food4.name)
+        expect(food4.name).to appear_before(food3.name)
+        expect(food3.name).to appear_before(food1.name)
+
+        click_link "Date Sort"
+
+        expect(food2.expiration_date).to appear_before(food1.expiration_date)
+        expect(food1.expiration_date).to appear_before(food3.expiration_date)
+        expect(food3.expiration_date).to appear_before(food4.expiration_date)
+    end
 end
