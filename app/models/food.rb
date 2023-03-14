@@ -13,4 +13,9 @@ class Food < ApplicationRecord
     def self.category_asc
         order(category: :asc, name: :asc)
     end
+
+    # def self.expiration_asc
+    #     # require 'pry'; binding.pry
+    #     order(expiration_date: :asc)
+    # end
 end
